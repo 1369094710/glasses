@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>免费注册</h1>
+    <div>
+        <input type="text" class="name">
+        <input type="text" class="posswork">
+        <button class="btn">提交</button>
+    </div>
+    <!-- ===================================================== -->
+    <script>
+        const name = document.querySelector('.name')
+        const poss = document.querySelector('.posswork')
+
+        const btn = document.querySelector('.btn')
+
+
+
+        btn.onclick = function () {
+            const username = name.value
+            const password = poss.value
+            const xhr = new XMLHttpRequest()
+            xhr.open('post', `http://localhost:7777/api/user/reg`,true)
+            //======body==传参===
+              // 设置content-type请求头
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhr.send(`username=${username}&password=${password}`)         
+            xhr.onload = function () {
+                console.log(xhr.response);
+                const data =JSON.parse(xhr.response)
+                if(data.code=200){
+                    alert('跳转到登录页面')
+                     location.href=`./login.html`
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

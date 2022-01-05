@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>我是首页</h1>
+    <div id="aa">
+
+        <button class="btn">跳转到注册页面</button>
+        <button class="btn_2">跳转到登录页面</button>
+
+    </div>
+    <!-- ===================================================== -->
+    <script>
+        const btn = document.querySelector('.btn')
+        const btn_2 = document.querySelector('.btn_2')
+
+        btn.onclick = function (e) {
+            location.href = `./reg.html`
+        }
+        btn_2.onclick = function (e) {
+            location.href = `./login.html`
+        }
+
+    </script>
+</body>
+
+</html>
